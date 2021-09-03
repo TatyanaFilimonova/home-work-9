@@ -548,9 +548,9 @@ def form_example():
 
     # otherwise handle the GET request
     try:
-            with open('html/bot_page.html', 'r') as file:
-                t = Template(file.read())
-                return t.render(command_history = command_history)
+      with open('html/bot_page.html', 'r') as file:
+         t = Template(file.read())
+         return t.render(command_history = command_history)
     except Exception as e:
                  return html_error(e)
    
