@@ -23,12 +23,6 @@ warnings.filterwarnings('ignore')
 
 app = Flask(__name__)
 
-#####routes section############################
-
-@app.route('/hello_', methods=['GET', 'POST'])
-def hello_():
-   return redirect('/bot-command')   
-
 def validate_contact_data(request, form_dict):
     for key in form_dict.keys():
         if  re.search("^Hint", request.form.get(key)):
@@ -144,6 +138,13 @@ form_dict_temp = {"Name":    {"value": "Hint: Input first and second name in one
                  "House":    {"value":"", "valid": True, "checker": House_checker, "error_message":""},
                  "Apartment":{"value":"", "valid": True, "checker": Apartment_checker, "error_message":""},
                 }
+
+#####routes section########################################################################
+
+@app.route('/hello_', methods=['GET', 'POST'])
+def hello_():
+   return redirect('/bot-command')   
+
 
 @app.route('/add_contact', methods=['GET', 'POST'])
 def add_contact():
